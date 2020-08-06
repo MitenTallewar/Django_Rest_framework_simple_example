@@ -1,0 +1,113 @@
+--> virtual env-->
+--> libs --> django,mysqlclient,drf,swagger
+	django --> web core features
+	mysqlclient - mysql and django interface/bridge
+	drf --> webservices/api implementations- ser/der/crud operations--
+	swagger --> req/res format built up-- documentations--
+
+-->django-admin startproject bookapi
+-->cd bookapi
+--> manage.py startapp book
+--> manage.py startapp author
+--> open this project in pycharm
+--> change env--> settings-- point out to --> djnago virtual env
+--> register --> apps- ->
+							book
+							author
+							rest_framework
+							rest_framework_swagger
+--> database change- -> *
+--> book
+		model.py---> add ur entities/orm
+
+			webservices implementation ->
+			app1 --> app2
+
+				serialization --> lang object--> n/w -- file supported format-->
+									app1		-->		app2
+
+DRF
+				from rest_framework.serializer import ModelSerializer
+
+		serializer -->	class BookSer(ModelSerializer): --> how to create json from book model -- include/exclude
+							class Meta:										python	 ser-json/xml
+								model = Book					--> ORM -- entity --> client-->		java
+								fields = '__all__' --> all
+								fields = ('fields',)	--> only
+								exclude = ('fields') --> without
+DRF
+				from rest_framework.viewset import ModelViewSet
+		views.py		class BookOperations(ModelViewSet)
+
+						crud --> 6 methods -->	--> ser/deser --> model --> json ---> uri/method-->
+								post -- create content/insert
+								put --> modify - full/entire
+								delete --> remove record
+								get -> fetch all
+								get/{}-- single
+								patch --> part of object-- modifcation
+
+
+
+--> uri/req/res->ser/desr--	---> rest-framework -->drf-->		Book --> Model
+
+
+>
+
+>pip install django		--> core features to implement web mvc-->web application
+						--> web + orm --> django.db-->
+
+mysqlclient we need to install it thru wheel file
+pip install djangorestframework	--> drf --> to implement webservices--
+								--> serialization --> deserialization
+								--> crud operations--> which returns serialized data-->
+
+
+drf --> api implementation + ser/der - webservices-- -- > uri-- req/res formats-->
+		manually---
+
+swagger --> automatically-- business methods-- uri extract--> --will provide to client
+
+
+
+--> django --> core-- web
+--> drf --> webservices-->api
+-->swagger --> req/res -format and documentation part-->
+-->mysqlclient/pymysql --> database related--orm
+
+
+
+
+
+https://www.django-rest-framework.org/tutorial/quickstart/
+
+
+--> client -->
+				request format -->
+					--> request uri,req headers,method type
+					--> req body --> format
+
+
+				response format -->
+						--> http code-->
+						--> res headers-->
+						-->res body
+						-> error messages in case any -->
+
+
+handle --> django--> swagger --> will provide two imp features
+							--> will collect req/res format- will provide ui--
+							--> documentation-->
+--> ? --> postman -- link-->
+		postman -- apis --> link --> shared->  6 uris-- req/res formats-->
+				client--> code- -> integrate --> requests -->
+
+		client -->  dev-> req/res-- format --> share--> client/testers
+
+		business methods --n --> uri-methodtype--res-->
+
+
+		development--> req/res--> client/tester --> postman-->
+
+
+-----------------------------
